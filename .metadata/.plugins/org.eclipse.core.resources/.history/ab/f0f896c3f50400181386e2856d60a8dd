@@ -1,0 +1,94 @@
+package UserInterface;
+
+import java.awt.EventQueue;
+import java.awt.TextArea;
+
+import javax.swing.JFrame;
+import javax.swing.JLabel;
+import javax.swing.JTextArea;
+import javax.swing.JTextField;
+
+import MindMapGraph.Extractor;
+import Sentence_Scoring.CuePhrase;
+import preprocessor.Tokeniser;
+
+import javax.swing.JButton;
+import java.awt.event.ActionListener;
+import java.io.IOException;
+import java.awt.event.ActionEvent;
+
+public class Second {
+
+	private JFrame frame;
+	private JTextField summaryPathTextField;
+
+	/**
+	 * Launch the application.
+	 */
+	public static void main(String[] args) {
+		EventQueue.invokeLater(new Runnable() {
+			public void run() {
+				try {
+					Second window = new Second();
+					
+					window.frame.setVisible(true);
+				} catch (Exception e) {
+					e.printStackTrace();
+				}
+			}
+		});
+	}
+
+	/**
+	 * Create the application.
+	 */
+	public Second() {
+		initialize();
+	}
+
+	/**
+	 * Initialize the contents of the frame.
+	 */
+	private void initialize() {
+		frame = new JFrame();
+		frame.setBounds(100, 100, 1000, 650);
+		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+		frame.getContentPane().setLayout(null);
+		
+		JLabel lblEnterSummarizedParagraph = new JLabel("Enter Summarized Paragraph : ");
+		lblEnterSummarizedParagraph.setBounds(37, 34, 200, 14);
+		frame.getContentPane().add(lblEnterSummarizedParagraph);
+		
+		summaryPathTextField = new JTextField();
+		summaryPathTextField.setBounds(247, 31, 423, 20);
+		frame.getContentPane().add(summaryPathTextField);
+		summaryPathTextField.setColumns(10);
+		
+		JButton btnGenerate = new JButton("Generate");
+		btnGenerate.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				
+				String SummaryFileLocation = summaryPathTextField.getText();
+			/*	Extractor e = new Extractor();
+				String structured_summary=e.create_structured_file(SummaryFileLocation);
+				textarea
+				*/
+								
+			}
+		});
+		btnGenerate.setBounds(202, 90, 89, 23);
+		frame.getContentPane().add(btnGenerate);
+		
+		JLabel lblStructuredfile = new JLabel("StructuredFile : ");
+		lblStructuredfile.setBounds(37, 167, 187, 14);
+		frame.getContentPane().add(lblStructuredfile);
+		
+		JTextArea textArea = new JTextArea();
+		textArea.setBounds(247, 162, 627, 404);
+		frame.getContentPane().add(textArea);
+		
+		JButton btnNext = new JButton("NEXT");
+		btnNext.setBounds(333, 90, 89, 23);
+		frame.getContentPane().add(btnNext);
+	}
+}

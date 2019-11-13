@@ -1,0 +1,4 @@
+#Sat Jun 02 14:50:24 IST 2018
+__DEFAULT__=false
+org.eclipse.help.ui.localSearch.master=true
+expression=extractor
